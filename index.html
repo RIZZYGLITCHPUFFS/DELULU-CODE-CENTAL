@@ -2,6 +2,43 @@
 <html>
 <head>
   <title>Masterlock</title>
+  <style>
+    body {
+      font-family: monospace;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #111;
+      color: #00ff88;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #222;
+      border: 1px solid #00ff88;
+      color: #00ff88;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      min-height: 60px;
+    }
+
+    .glitch {
+      color: #0f0;
+      animation: glitch 0.3s infinite;
+    }
+
+    @keyframes glitch {
+      0%   { text-shadow: 2px 2px red; }
+      25%  { text-shadow: -2px 2px blue; }
+      50%  { text-shadow: 2px -2px lime; }
+      75%  { text-shadow: -2px -2px cyan; }
+      100% { text-shadow: 2px 2px red; }
+    }
+  </style>
 </head>
 <body>
   <h1>Enter the Secret Code</h1>
