@@ -1,11 +1,9 @@
 function checkCode() {
-  const correctCode = "delulu-4-lyfe";
-  const userInput = document.getElementById("codeInput").value.toLowerCase();
+  const userInput = document.getElementById("codeInput").value;
   const message = document.getElementById("message");
   const loading = document.getElementById("loading");
   const loadingBar = document.getElementById("loadingBar");
 
-  // Reset everything
   message.textContent = "";
   loading.textContent = "";
   loadingBar.style.width = "0%";
@@ -17,7 +15,7 @@ function checkCode() {
     return;
   }
 
-  if (userInput === correctCode) {
+  if (userInput === "delulu-4-lyfe" || userInput === "DELULU-4-LYFE") {
     loading.textContent = "Authenticating...";
     loading.classList.add("glitch");
     loadingBar.style.width = "100%";
@@ -35,6 +33,7 @@ function checkCode() {
     message.style.color = "red";
   }
 }
+
 
 // Allow Enter key to trigger the check
 document.getElementById("codeInput").addEventListener("keydown", function (e) {
