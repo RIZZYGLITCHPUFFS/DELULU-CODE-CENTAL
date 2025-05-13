@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Masterlock</title>
   <style>
+        @keyframes glitch {
+      0%   { text-shadow: 2px 2px red; }
+      25%  { text-shadow: -2px 2px blue; }
+      50%  { text-shadow: 2px -2px lime; }
+      75%  { text-shadow: -2px -2px cyan; }
+      100% { text-shadow: 2px 2px red; }
+    }
+
+    .glitch-effect {
+      color: inherit;
+      animation: glitch 1s infinite;
+    }
+    
     body {
       font-family: monospace;
       text-align: center;
@@ -45,18 +60,6 @@
       background-color: #00ff88;
       transition: width 2s;
       margin-top: 10px;
-    }
-    @keyframes glitch {
-      0%   { text-shadow: 2px 2px red; }
-      25%  { text-shadow: -2px 2px blue; }
-      50%  { text-shadow: 2px -2px lime; }
-      75%  { text-shadow: -2px -2px cyan; }
-      100% { text-shadow: 2px 2px red; }
-    }
-
-    .glitch-effect {
-      color: inherit;
-      animation: glitch 1s infinite;
     }
   </style>
 </head>
