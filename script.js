@@ -5,7 +5,7 @@ function checkCode() {
   const message = document.getElementById("message");
 
   if (userInput === "") {
-    message.textContent = "I don't think nothing gives you something. That's all!";
+    message.textContent = "I don't think nothing gives you anything. That's all!";
     message.style.color = "orange";
   } else if (userInput === correctCode || userInput === correctCode2) {
     message.textContent = "✅Congratulations! You've unlocked the Super-Secret Rizzy Glitch Revelation! ...Unfortunately, there's nothing here. You've been had! But hey, at least you ate some cereal, right? The cereal is all that matters...";
