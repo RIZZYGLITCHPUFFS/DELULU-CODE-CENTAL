@@ -15,3 +15,10 @@ function checkCode() {
     message.style.color = "red";
   }
 }
+
+
+document.getElementById("codeInput").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    checkCode();
+  }
+});
