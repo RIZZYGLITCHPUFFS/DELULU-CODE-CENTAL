@@ -1,39 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Masterlock</title>
   <style>
-    @keyframes glitchDistortion {
-      0% {
-        transform: skew(0.5deg, 0.5deg) translate(-2px, 2px);
-        text-shadow: none;
-      }
-      25% {
-        transform: skew(-0.5deg, -0.5deg) translate(2px, -2px);
-        text-shadow: none;
-      }
-      50% {
-        transform: skew(1deg, -1deg) translate(-1px, 1px);
-        text-shadow: none;
-      }
-      75% {
-        transform: skew(-1deg, 1deg) translate(1px, -1px);
-        text-shadow: none;
-      }
-      100% {
-        transform: skew(0.5deg, 0.5deg) translate(-2px, 2px);
-        text-shadow: none;
-      }
-    }
-    
-    .glitch-effect {
-      color: inherit;
-      animation: glitchDistortion 2s infinite;
-      display: inline-block;
-    }
-    
     body {
       font-family: monospace;
       text-align: center;
@@ -55,19 +26,8 @@
       font-weight: bold;
       font-size: 18px;
       min-height: 60px;
-    }
-
-    .glitch {
-      color: #0f0;
-      animation: glitch 0.2s infinite;
-    }
-
-    @keyframes glitch {
-      0%   { text-shadow: 2px 2px red; }
-      25%  { text-shadow: -2px 2px blue; }
-      50%  { text-shadow: 2px -2px lime; }
-      75%  { text-shadow: -2px -2px cyan; }
-      100% { text-shadow: 2px 2px red; }
+      position: relative;
+      display: inline-block;
     }
 
     #loadingBar {
@@ -77,15 +37,60 @@
       transition: width 2s;
       margin-top: 10px;
     }
+
+    /* Glitch effect base */
+    .glitch-effect {
+      animation: glitch-single 1.5s infinite;
+    }
+
+    .glitch-effect::before,
+    .glitch-effect::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .glitch-effect::before {
+      animation: glitch-slice-1 1.5s infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+    }
+
+    .glitch-effect::after {
+      animation: glitch-slice-2 1.5s infinite;
+      clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+    }
+
+    @keyframes glitch-single {
+      0% { transform: none; }
+      20% { transform: translateX(-1px); }
+      40% { transform: translateX(1px); }
+      60% { transform: translateX(-1px); }
+      80% { transform: translateX(1px); }
+      100% { transform: none; }
+    }
+
+    @keyframes glitch-slice-1 {
+      0% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      100% { transform: translateX(-2px); }
+    }
+
+    @keyframes glitch-slice-2 {
+      0% { transform: translateX(2px); }
+      50% { transform: translateX(-2px); }
+      100% { transform: translateX(2px); }
+    }
   </style>
 </head>
 <body>
   <h1>Enter the Secret Code</h1>
-  
-  <input type="text" id="codeInput" placeholder="Enter code here">
+
+  <input type="text" id="codeInput" placeholder="Enter code here" />
   <button onclick="checkCode()">Correct?</button>
 
-  <div id="loading" class="glitch"></div>
+  <div id="loading"></div>
   <div id="loadingBar"></div>
   <p id="message"></p>
 
