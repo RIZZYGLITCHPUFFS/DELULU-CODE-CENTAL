@@ -8,29 +8,29 @@
     @keyframes glitch {
       0% {
         transform: skew(0.5deg, 0.5deg) translate(-2px, 2px);
-        text-shadow: 2px 2px red;
+        text-shadow: none;
       }
       25% {
         transform: skew(-0.5deg, -0.5deg) translate(2px, -2px);
-        text-shadow: -2px 2px blue;
+        text-shadow: none;
       }
       50% {
         transform: skew(1deg, -1deg) translate(-1px, 1px);
-        text-shadow: 2px -2px lime;
+        text-shadow: none;
       }
       75% {
         transform: skew(-1deg, 1deg) translate(1px, -1px);
-        text-shadow: -2px -2px cyan;
+        text-shadow: none;
       }
       100% {
         transform: skew(0.5deg, 0.5deg) translate(-2px, 2px);
-        text-shadow: 2px 2px red;
+        text-shadow: none;
       }
     }
     
     .glitch-effect {
       color: inherit;
-      animation: glitch 1s infinite;
+      animation: glitch 2s infinite;
       display: inline-block;
     }
     
