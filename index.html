@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Masterlock</title>
   <style>
     body {
@@ -40,46 +40,25 @@
 
     /* Glitch effect base */
     .glitch-effect {
-      animation: glitch-single 3s infinite;
-    }
-
-    .glitch-effect::before,
-    .glitch-effect::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .glitch-effect::before {
-      animation: glitch-slice-1 0.75s infinite;
-      clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
-    }
-
-    .glitch-effect::after {
-      animation: glitch-slice-2 0.75s infinite;
-      clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+      animation: glitch-single 3s infinite, glitch-distort 0.75s infinite;
+      display: inline-block;
     }
 
     @keyframes glitch-single {
       0% { transform: none; }
-      25% { transform: translateX(-5px); }
-      50% { transform: translateX(5px); }
-      75% { transform: translateX(-5px); }
+      20% { transform: translateX(-2px); }
+      40% { transform: translateX(2px); }
+      60% { transform: translateX(-2px); }
+      80% { transform: translateX(2px); }
       100% { transform: none; }
     }
 
-    @keyframes glitch-slice-1 {
-      0% { transform: translateX(-5px); }
-      50% { transform: translateX(5px); }
-      100% { transform: translateX(-5px); }
-    }
-
-    @keyframes glitch-slice-2 {
-      0% { transform: translateX(5px); }
-      50% { transform: translateX(-5px); }
-      100% { transform: translateX(5px); }
+    @keyframes glitch-distort {
+      0% { transform: none; }
+      100% { 
+        transform: skew(-10deg, 5deg) translate(-2px, 2px);
+        text-shadow: 3px 3px 5px red, -3px -3px 5px blue;
+      }
     }
   </style>
 </head>
