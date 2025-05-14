@@ -1,5 +1,4 @@
 function checkCode() {
-function checkCode() {
   const correctCode = "DELULU-4-LYFE";
   const correctCode2 = "delulu-4-lyfe";
   const userInput = document.getElementById("codeInput").value;
