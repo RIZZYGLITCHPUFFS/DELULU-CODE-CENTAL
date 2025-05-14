@@ -11,6 +11,7 @@ function checkCode() {
   message.classList.remove("glitch-effect");
   message.removeAttribute("data-text");
 
+  // If input is empty
   if (userInput === "") {
     const text = "I don't think nothing gives you anything. That's all!";
     message.textContent = text;
@@ -20,6 +21,7 @@ function checkCode() {
     return;
   }
 
+  // If the correct code is entered
   if (userInput === "delulu-4-lyfe" || userInput === "DELULU-4-LYFE") {
     loading.textContent = "Authenticating...";
     loadingBar.style.width = "100%";
@@ -40,13 +42,6 @@ function checkCode() {
     message.setAttribute("data-text", text);
     message.classList.add("glitch-effect");
   }
-
-  // Apply the glitch effect every 3 seconds
-  setInterval(() => {
-    if (message.textContent === "❌ Hey, I think it's wrong. Before you try again, read this -> What are the strongest days of the week? Saturday and Sunday, the rest are weekdays." || message.textContent === "I don't think nothing gives you anything. That's all!") {
-      message.classList.add("glitch-effect");
-    }
-  }, 3000); // Every 3 seconds
 }
 
 // Allow Enter key to submit
