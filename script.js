@@ -4,7 +4,7 @@ function checkCode() {
   const loading = document.getElementById("loading");
   const loadingBar = document.getElementById("loadingBar");
 
-  // Reset
+  // Reset everything
   message.textContent = "";
   loading.textContent = "";
   loadingBar.style.width = "0%";
@@ -40,6 +40,13 @@ function checkCode() {
     message.setAttribute("data-text", text);
     message.classList.add("glitch-effect");
   }
+
+  // Apply the glitch effect every 3 seconds
+  setInterval(() => {
+    if (message.textContent === "❌ Hey, I think it's wrong. Before you try again, read this -> What are the strongest days of the week? Saturday and Sunday, the rest are weekdays." || message.textContent === "I don't think nothing gives you anything. That's all!") {
+      message.classList.add("glitch-effect");
+    }
+  }, 3000); // Every 3 seconds
 }
 
 // Allow Enter key to submit
